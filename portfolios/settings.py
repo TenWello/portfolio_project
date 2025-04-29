@@ -105,7 +105,7 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-
+os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'portfolios.settings')
 # Internationalization
 # https://docs.djangoproject.com/en/5.1/topics/i18n/
 
