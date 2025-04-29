@@ -1,0 +1,34 @@
+{% load static %}
+<header class="header-area">
+    <div class="container">
+        <div class="gx-row d-flex align-items-center justify-content-between">
+            <a href="{% url 'index' %}" class="logo">
+                <img src="{% static 'images/my_logo.png' %}" alt="Logo">
+            </a>
+            <nav class="navbar">
+                <ul class="menu">
+<!--                    <li class="{% if request.resolver_match.url_name == 'index' %}active{% endif %}">-->
+<!--                        <a href="{% url 'index' %}">Home</a>-->
+<!--                    </li>-->
+                    <li class="{% if request.resolver_match.url_name == 'about' %}active{% endif %}">
+                        <a href="{% url 'about' %}">About</a>
+                    </li>
+                    <li class="{% if request.resolver_match.url_name == 'works' %}active{% endif %}">
+                        <a href="{% url 'works' %}">Works</a>
+                    </li>
+                    <li class="{% if request.path == '/contact.html' %}active{% endif %}">
+                        <a href="{% url 'contact' %}">Contact</a>
+                    </li>
+                </ul>
+
+                <a href="{% url 'contact' %}" class="theme-btn">Let's talk</a>
+            </nav>
+            <a href="{% url 'contact' %}" class="theme-btn">Let's talk</a>
+            <div class="show-menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </div>
+</header>

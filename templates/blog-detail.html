@@ -1,0 +1,153 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}
+<title>Blog Detail</title>
+{% endblock %}
+{% block content %}
+       <section class="breadcrumb-area">
+            <div class="container">
+                <div class="breadcrumb-content" data-aos="fade-up">
+                    <p>HOME - BLOG DETAILS</p>
+                    <h1 class="section-heading"><img src="/static/images/star-2.png" alt="Star"> Blog Details <img src="/static/images/star-2.png" alt="Star"></h1>
+                </div>
+            </div>
+        </section>
+
+        <!-- Blog Details -->
+        <section class="blog-details-area">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-8">
+                        <div class="blog-details-content">
+                            <div class="img-box">
+                                {% if blog.image %}
+                                    <img src="{{ blog.image.url }}" alt="Blog">
+                                {% else %}
+                                    <img src="{% static 'images/blog1.jpg' %}" alt="Blog">
+                                {% endif %}
+                            </div>
+                            <span class="meta">{{ blog.created_at|date:"d F Y" }} - Comments ({{ comments_count }}) - Share ({{ blog.share_count }}) </span>
+                            <h1>{{ blog.title }}</h1>
+                            <p>{{ blog.content|safe }}</p>
+
+<!--                                <div class="tags">-->
+<!--                                    {% for tag in tags %}-->
+<!--                                    <a href="?tag={{ tag.slug }}" class="theme-btn">{{ tag.name }}</a>-->
+<!--                                    {% endfor %}-->
+<!--                                </div>-->
+
+                            <div class="comments-and-form-wrap">
+                                <div class="comments-and-form-wrap-inner shadow-box">
+                                    <h2>{{ comments_count  }} Comments</h2>
+
+                                    <div class="comments">
+                                        {% for comment in blog.comments.all %}
+                                        <div class="comment-list">
+                                            <div class="comment-avatar">
+                                                <img src="/static/images/comment_picture.webp" alt="Avatar">
+                                            </div>
+                                            <div class="comment-body">
+                                                <span class="date">{{ blog.created_at|date:"d F Y" }}</span>
+                                                <h3>{{ comment.name }}</h3><p>{{ comment.email }}</p>
+                                                <p>{{comment.message}}</p>
+                                            </div>
+                                        </div>
+                                        {% empty %}
+                                            <p>No comments yet. Be the first to comment</p>
+                                        {% endfor %}
+                                    </div>
+
+                                    <div class="comment-form">
+                                        <h2>Leave A Reply</h2>
+
+                                        <form method="POST">
+                                            {% csrf_token %}
+                                            <div class="input-group">
+                                                <input type="text" name="name" placeholder="Name*">
+                                            </div>
+                                            <div class="input-group">
+                                                <input type="text" name="email" placeholder="Email*">
+                                            </div>
+                                            <div class="input-group">
+                                                <textarea name="message" placeholder="Your Message*"></textarea>
+                                            </div>
+                                            <div class="input-group">
+                                                <button class="theme-btn" type="submit">Send Message</button>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="blog-sidebar">
+                            <div class="blog-sidebar-inner">
+
+                                <div class="blog-sidebar-widget search-widget">
+                                    <div class="blog-sidebar-widget-inner" data-aos="zoom-in">
+                                        <form class="shadow-box">
+                                            <input type="text" placeholder="Search Here...">
+                                            <button class="theme-btn">Search</button>
+                                        </form>
+                                    </div>
+                                </div>
+
+                                <div class="blog-sidebar-widget recent-post-widget" data-aos="zoom-in">
+                                    <div class="blog-sidebar-widget-inner shadow-box">
+                                        <h3>Recent Posts</h3>
+
+                                        <ul>{% for post in recent_posts %}
+                                        <ul>
+                                            <li><a href="{% url 'blog-detail' slug=post.slug %}">{{ post.title }}</a></li>
+                                            <br>
+                                        </ul>
+                                        {% empty %}
+                                        <li>No recent post available</li>
+                                        {% endfor %}
+                                        </ul>
+
+                                    </div>
+                                </div>
+
+                                <div class="blog-sidebar-widget categories-widget" data-aos="zoom-in">
+                                    <div class="blog-sidebar-widget-inner shadow-box">
+                                        <h3>Categories</h3>
+
+                                        <ul>
+                                            {% for category in categories %}
+                                                <li><a href="?category={{ category.slug }}">{{ category.name }}</a></li>
+                                            {% empty %}
+                                                <li>No categories available</li>
+                                            {% endfor %}
+                                        </ul>
+
+                                    </div>
+                                </div>
+
+                                <div class="blog-sidebar-widget tags-widget" data-aos="zoom-in">
+                                    <div class="blog-sidebar-widget-inner shadow-box">
+                                        <h3>Tags</h3>
+
+
+                                            <ul>
+                                            {% for tag in tags %}
+                                                <li><a class="theme-btn" href="?tag={{ tag.slug }}">{{ tag.name }}</a></li>
+                                            {% empty %}
+                                                <li>No tags Available</li>
+                                            {% endfor %}
+                                            </ul>
+
+
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+{% endblock %}

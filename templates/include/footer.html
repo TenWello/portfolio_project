@@ -1,0 +1,24 @@
+{% load static %}
+<!--FOOTER-->
+        <footer class="footer-area">
+            <div class="container">
+                <div class="footer-content text-center">
+                    <a href="{% url 'index' %}" class="logo">
+                        <img src="{% static '/images/my_logo.png' %}" alt="Logo">
+                    </a>
+<!--                    <ul class="footer-menu">-->
+<!--&lt;!&ndash;                        <li class="{% if request.resolver_match.url_name == 'index' %}active{% endif %}">&ndash;&gt;-->
+<!--&lt;!&ndash;                            <a href="{% url 'index' %}">Home</a></li>&ndash;&gt;-->
+<!--                        <li class="{% if request.resolver_match.url_name == 'about' %}active{% endif %}">-->
+<!--                            <a href="{% url 'about' %}">About</a></li>-->
+<!--                        <li class="{% if request.resolver_match.url_name == 'work' %}active{% endif %}">-->
+<!--                            <a href="{% url 'works' %}">Works</a></li>-->
+<!--                        <li class="{% if request.resolver_match.url_name == 'contact' %}active{% endif %}">-->
+<!--                            <a href="contact.html">Contact</a></li>-->
+<!--                    </ul>-->
+                    <p class="copyright">
+                        &copy; All rights reserved | Copyright ©2025 <br> <span>Fayziev's Portfolio</span>
+                    </p>
+                </div>
+            </div>
+        </footer>
