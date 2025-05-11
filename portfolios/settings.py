@@ -26,6 +26,7 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 # Application definition
 
 INSTALLED_APPS = [
+    'jazzmin',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
