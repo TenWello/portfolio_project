@@ -11,7 +11,8 @@ SECRET_KEY = 'SECRET_KEY'
 
 DEBUG = os.getenv('DEBUG', True)
 
-ALLOWED_HOSTS =  ['portfolio-project-kfd9.onrender.com', 'localhost', '127.0.0.1']
+ALLOWED_HOSTS = ['56.228.82.46', 'fayziev.uz', '127.0.0.1']
+
 
 BOT_TOKEN = os.getenv('BOT_TOKEN')
 TELEGRAM_CHAT_ID = os.getenv('TELEGRAM_CHAT_ID')
