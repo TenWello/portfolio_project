@@ -11,7 +11,8 @@ SECRET_KEY = 'SECRET_KEY'
 
 DEBUG = os.getenv('DEBUG', True)
 
-ALLOWED_HOSTS = ['56.228.82.46', 'fayziev.uz', '127.0.0.1']
+ALLOWED_HOSTS = ['tenwello.pythonanywhere.com']
+
 
 
 BOT_TOKEN = os.getenv('BOT_TOKEN')
@@ -79,14 +80,11 @@ WSGI_APPLICATION = 'portfolios.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': os.getenv("NAME"),
-        'USER': os.getenv("USER"),
-        'PASSWORD': os.getenv("PASSWORD"),
-        'HOST': os.getenv("HOST"),
-        'PORT': os.getenv("PORT"),
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
+
 
 
 
