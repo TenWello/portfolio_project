@@ -8,7 +8,7 @@ from portfolio.models import AboutMe, Experience, Education, Skill, Project, Ser
 
 
 def index(request):
-    return render(request, 'template/index.html')
+    return render(request, 'index.html')
 
 class AboutView(TemplateView):
     template_name = 'about.html'
