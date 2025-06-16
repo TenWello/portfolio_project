@@ -11,7 +11,7 @@ SECRET_KEY = 'SECRET_KEY'
 
 DEBUG = False
 
-ALLOWED_HOSTS = ['https://tenwello.pythonanywhere.com/']
+ALLOWED_HOSTS = ['tenwello.pythonanywhere.com']
 
 
 
