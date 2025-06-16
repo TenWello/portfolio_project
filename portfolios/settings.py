@@ -9,9 +9,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 SECRET_KEY = 'SECRET_KEY'
 
-DEBUG = os.getenv('DEBUG', False)
+DEBUG = False
 
-ALLOWED_HOSTS = ['tenwello.pythonanywhere.com']
+ALLOWED_HOSTS = ['https://tenwello.pythonanywhere.com/']
 
 
 
